@@ -9,7 +9,7 @@
         <h:head>
             <f:facet name="first">
                 <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
-                <title>PrimeFaces</title>
+                <title>Biblioteca</title>
             </f:facet>
         </h:head>
 
@@ -22,7 +22,7 @@
                 </p:layoutUnit>
 
                 <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
-                    Footer
+                    Junior
                 </p:layoutUnit>
 
                 <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
@@ -40,6 +40,22 @@
 
                 <p:layoutUnit position="center">
                     Welcome to PrimeFaces
+                    
+                    
+<p:dataGrid var="car" value="#{carBean.cars}" columns="3" rows="12">
+<p:column>
+<p:panel header="#{car.model}">
+<h:panelGrid columns="1">
+<p:graphicImage value="/images/cars/#{car.manufacturer}.jpg"/>
+<h:outputText value="#{car.year}" />
+</h:panelGrid>
+</p:panel>
+</p:column>
+</p:dataGrid>
+                    
+                    
+                    
+                    
                 </p:layoutUnit>
 
             </p:layout>
