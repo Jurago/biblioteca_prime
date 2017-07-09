@@ -3,34 +3,31 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
-    <ui:composition template="/template.xhtml">
-        <ui:define name="title">
-            <h:outputText value="#{bundle.EditAutorTitle}"></h:outputText>
-        </ui:define>
-        <ui:define name="body">
-            <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-            </h:panelGroup>
-            <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditAutorLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{autorController.selected.id}" title="#{bundle.EditAutorTitle_id}" required="true" requiredMessage="#{bundle.EditAutorRequiredMessage_id}"/>
-                    <h:outputLabel value="#{bundle.EditAutorLabel_nome}" for="nome" />
-                    <h:inputText id="nome" value="#{autorController.selected.nome}" title="#{bundle.EditAutorTitle_nome}" required="true" requiredMessage="#{bundle.EditAutorRequiredMessage_nome}"/>
-                </h:panelGrid>
-                <h:commandLink action="#{autorController.update}" value="#{bundle.EditAutorSaveLink}"/>
-                <br />
-                <br />
-                <h:link outcome="View" value="#{bundle.EditAutorViewLink}"/>
-                <br />
-                <h:commandLink action="#{autorController.prepareList}" value="#{bundle.EditAutorShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.EditAutorIndexLink}" />
+    <ui:composition>
+
+        <p:dialog id="AutorEditDlg" widgetVar="AutorEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditAutorTitle}">
+            <h:form id="AutorEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{autorController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditAutorLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{autorController.selected.id}" title="#{bundle.EditAutorTitle_id}" required="true" requiredMessage="#{bundle.EditAutorRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditAutorLabel_nome}" for="nome" />
+                        <p:inputText id="nome" value="#{autorController.selected.nome}" title="#{bundle.EditAutorTitle_nome}" required="true" requiredMessage="#{bundle.EditAutorRequiredMessage_nome}"/>
+                        <p:outputLabel value="#{bundle.EditAutorLabel_biografia}" for="biografia" />
+                        <p:inputText id="biografia" value="#{autorController.selected.biografia}" title="#{bundle.EditAutorTitle_biografia}" />
+                        <p:outputLabel value="#{bundle.EditAutorLabel_dataNasc}" for="dataNasc" />
+                        <p:calendar id="dataNasc" pattern="MM/dd/yyyy" value="#{autorController.selected.dataNasc}" title="#{bundle.EditAutorTitle_dataNasc}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditAutorLabel_imagem}" for="imagem" />
+                        <p:inputText id="imagem" value="#{autorController.selected.imagem}" title="#{bundle.EditAutorTitle_imagem}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{autorController.update}" value="#{bundle.Save}" update="display,:AutorListForm:datalist,:growl" oncomplete="handleSubmit(args, 'AutorEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="AutorEditDialog.hide()"/>
+                </h:panelGroup>
             </h:form>
-        </ui:define>
-    </ui:composition>
+        </p:dialog>
 
+    </ui:composition>
 </html>

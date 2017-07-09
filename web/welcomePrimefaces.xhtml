@@ -9,7 +9,7 @@
         <h:head>
             <f:facet name="first">
                 <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
-                <title>Biblioteca</title>
+                <title>PrimeFaces</title>
             </f:facet>
         </h:head>
 
@@ -17,20 +17,21 @@
 
             <p:layout fullPage="true">
 
-                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
-                    Header
+                <p:layoutUnit position="north" size="100" header="Header" resizable="true" closable="true" collapsible="true">
+                    
                 </p:layoutUnit>
 
                 <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
-                    Junior
+                    <br/>
+                    <h:outputText value="Faculdade Doctum"/>
                 </p:layoutUnit>
 
-                <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
+                <p:layoutUnit position="west" size="175" header="Left" collapsible="true" resizable="true">
                     <p:menu>
                         <p:submenu label="Resources">
-                            <p:menuitem value="Livros" url="faces/livro/List.xhtml" />
-                            <p:menuitem value="Autores" url="faces/autor/List.xhtml" />
-                            <p:menuitem value="Editores" url="editora/List" />
+                            <p:menuitem value="Demo" url="http://www.primefaces.org/showcase-labs/ui/home.jsf" />
+                            <p:menuitem value="Documentation" url="http://www.primefaces.org/documentation.html" />
+                            <p:menuitem value="Forum" url="http://forum.primefaces.org/" />
                             <p:menuitem value="Themes" url="http://www.primefaces.org/themes.html" />
 
                         </p:submenu>
@@ -40,22 +41,6 @@
 
                 <p:layoutUnit position="center">
                     Welcome to PrimeFaces
-                    
-                    
-<p:dataGrid var="car" value="#{carBean.cars}" columns="3" rows="12">
-<p:column>
-<p:panel header="#{car.model}">
-<h:panelGrid columns="1">
-<p:graphicImage value="/images/cars/#{car.manufacturer}.jpg"/>
-<h:outputText value="#{car.year}" />
-</h:panelGrid>
-</p:panel>
-</p:column>
-</p:dataGrid>
-                    
-                    
-                    
-                    
                 </p:layoutUnit>
 
             </p:layout>

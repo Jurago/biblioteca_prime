@@ -3,84 +3,113 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
-
-    <f:view contentType="text/html">
-        <h:head>
-            <f:facet name="first">
-                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
-                <title>Biblioteca</title>
-                <h:outputStylesheet name="css/jsfcrud.css"/>
-            </f:facet>
-        </h:head>
-
-        <h:body>
-
-            <p:layout fullPage="true">
-
-                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
-                    Header
-                    
-                    Bem Vindo a biblioteca
-                </p:layoutUnit>
-
-                <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
-                    Desenvolvido por Junior
-                </p:layoutUnit>
-
-                <p:layoutUnit position="west" size="175" header="Fechar" collapsible="true">
-                    <p:menu>
-                        <p:submenu label="Menu">
-                            <p:menuitem value="Livros" url="faces/livro/List.xhtml" />
-                            <p:menuitem value="Autores" url="faces/autor/List.xhtml" />
-                            <p:menuitem value="Editores" url="editora/List" />
-                            <p:menuitem value="Themes" url="http://www.primefaces.org/themes.html" />
-
-                        </p:submenu>
-
-                    </p:menu>
-                </p:layoutUnit>
-
-                <p:layoutUnit position="center">
-                    Bem Vindo a Biblioteca
-
-                    <p:carousel autoPlayInterval="5000" effect="easeInStrong" circular="true"
-                                itemStyle="width:900px height:300px"  numVisible="1">
-                        <p:graphicImage value="/images/carousel/1.jpg"/>
-                        <p:graphicImage value="/images/carousel/2.jpg"/>
-                        <p:graphicImage value="/images/carousel/3.jpg"/>
-                    </p:carousel>
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pm="http://primefaces.org/mobile">
 
 
+    <h:head>
+        <title>Biblioteca Doctum</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+    </h:head>
+    <h:body>
+
+        <p:layout fullPage="true">
 
 
+            <!-- North/Cabeçalho -->
+            <p>      </p><p:layoutUnit position="north" size="350">
+                <pm:page>
+                    <pm:header title="Header">
+                        <p:graphicImage value="/images/index/logo.jpeg"/>
+                    </pm:header>
+                </pm:page>
+            </p:layoutUnit>
+            <!-- FIM North/Cabeçalho -->
 
 
+            <!-- South/Footer -->
+            <p:layoutUnit position="south" size="50">
+                <h3>Sistemas de Informação</h3>
+            </p:layoutUnit>
+            <!-- FIM South/Footer -->
 
-                </p:layoutUnit>
 
-            </p:layout>
-
-            <br />
-            <h:link outcome="/autor/List" value="Show All Autor Items"/>
-            <br />
-            <h:link outcome="/biblioteca/List" value="Show All Biblioteca Items"/>
-            <br />
-            <h:link outcome="/editora/List" value="Show All Editora Items"/>
-            <br />
-            <h:link outcome="/livro/List" value="Show All Livro Items"/>
-            <br />
-            <h:link outcome="/mensagem/List" value="Show All Mensagem Items"/>
-            <br />
-            <h:link outcome="/usuario/List" value="Show All Usuario Items"/>
-        </h:body>
+            <!-- West/Esquerda/Oeste -->
+            <p:layoutUnit header="Menu" position="west" size="200">
+                <p:menu >
+                    <p:submenu label="Menu">
+                        <p:menuitem value="Home" url="/faces/index.xhtml" icon="ui-icon-home"/>
+                        <p:menuitem value="Livros" url="/faces/livros.xhtml"/>
+                        <p:menuitem value="Autores" url="/faces/autores.xhtml"/>
+                        <p:menuitem value="Nosso Endereço" url="/faces/endereco.xhtml"/>
+                        <p:menuitem value="Deixe sua mensagem" url="/faces/mensagem.xhtml"/>
+                    </p:submenu>
+                    <p:submenu label="Relatórios">
+                        <p:menuitem value="Livros" url="/faces/rellivros.xhtml"/>
+                    </p:submenu>
+                    <p:submenu label="Manutenção">
+                        <p:menuitem value="Autores" url="autor/List.xhtml"/>
+                        <p:menuitem value="Editoras" url="editora/List.xhtml"/>
+                        <p:menuitem value="Categorias" url="categoria/List.xhtml"/>
+                        <p:menuitem value="Livros" url="livro/List.xhtml"/>
+                        <p:menuitem value="Usuários" url="usuario/List.xhtml"/>
+                    </p:submenu>
+                </p:menu>
+            </p:layoutUnit>
+            <!-- FIM West/Esquerda/Oeste -->
 
 
 
+            <!-- Center/Centro -->
+            <p:layoutUnit position="center">
 
+                <div class="ui-g">
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-10">
+                        <br/>
+                        <br/>
+                        <h2>Qual a importância da biblioteca para os alunos?</h2>
+                        <p>As bibliotecas têm uma importância enorme na história da nossa civilização, sendo os locais onde todo ou grande parte do conhecimento produzido por determinada civilização ou grupo de pessoas era armazenado, em diferentes épocas e eras. A partir do conteúdo de uma determinada biblioteca, é possível conhecer toda a história do povo que a construiu.
 
+Hoje em dia, as bibliotecas, principalmente as presentes em universidades, ainda possuem um papel muito importante na difusão e na democratização do conhecimento, assim como na gestão do saber.</p>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <h2>Uma breve história das bibliotecas</h2>
+                        <p>As primeiras bibliotecas de que se tem notícia remontam ao período antes mesmo da invenção do próprio livro. As chamadas bibliotecas minerais, por serem acervos constituídos por blocos de argila com escritos cuneiformes, foram descobertas na Mesopotâmia, e datam de 2.500 anos antes de Cristo!
 
+Babilônios, assírios, persas, chineses, egípcios e outras civilizações da Antiguidade também possuíam suas bibliotecas, constituídas por papiros e pergaminhos escritos à mão. Infere-se que a famosa Biblioteca de Alexandria, no Egito, teria de 40 a 60 mil rolos de papiros manuscritos em seu acervo.
 
-    </f:view>
+Com a invenção do papel pelos árabes e, posteriormente, com a invenção dos livros, as bibliotecas se tornaram mais comuns. No entanto, em função da elitização da educação na época, as bibliotecas só eram acessadas por pessoas ricas, letradas ou por constituintes da Igreja Católica. Durante a Idade Média, período de maior dominação da Igreja sob o Estado, as bibliotecas ocidentais quase foram extintas, devido à censura e à queima de livros considerados hereges.
+
+Somente no século XVI, as bibliotecas passaram a ser mais difundidas, tornando-se centros detentores e armazenadores do conhecimento, democratizando a informação nas mais diferentes áreas do conhecimento humano e passando a ter caráter intelectual e civil.
+
+No Brasil, a primeira biblioteca oficial foi a Biblioteca Nacional e Pública, fundada na cidade do Rio de Janeiro em 1825.</p>
+
+                        <br/>
+                        <br/>
+                        <br/>
+                        <h2>Benefícios da Leitura!</h2>
+                        <p:carousel autoPlayInterval="5000" effect="easeInStrong" circular="true"
+                                    itemStyle="width:50px" numVisible="1">
+                            <p:graphicImage value="/images/carousel/1.jpg"/>
+                            <p:graphicImage value="/images/carousel/2.jpg"/>
+                            <p:graphicImage value="/images/carousel/3.jpg"/>
+                        </p:carousel>
+                        <br/>
+                        <br/>
+
+                    </div>
+                    <div class="ui-g-1"></div>
+                </div>
+
+            </p:layoutUnit>
+            <!-- FIM Center/Centro -->
+        </p:layout>
+
+        <br />
+        <h:link outcome="/mensagem/List" value="Show All Mensagem Items"/>
+    </h:body>
+
 </html>
 
